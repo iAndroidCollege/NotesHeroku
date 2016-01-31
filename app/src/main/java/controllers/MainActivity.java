@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     ViewPager pager;
     @Bind(R.id.fab)
     FloatingActionButton fab;
+    private NotesFragemntAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +32,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
-        NotesFragemntAdapter adapter = new NotesFragemntAdapter(getSupportFragmentManager());
+        adapter = new NotesFragemntAdapter(getSupportFragmentManager());
         pager.setAdapter(adapter);
+
         tabs.setupWithViewPager(pager);
+    }
+
+    public void refresh(){
+        if (adapter!=null)
+            adapter = new NotesFragemntAdapter(getSupportFragmentManager());
     }
 
     @Override

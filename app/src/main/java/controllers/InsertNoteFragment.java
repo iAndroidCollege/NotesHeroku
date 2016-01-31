@@ -48,6 +48,7 @@ public class InsertNoteFragment extends Fragment {
         String note = etNote.getText().toString();
         DAO d = DAO.getSharedInstance(getActivity());
         d.createNote(title, note);
+        ((MainActivity)getActivity()).refresh();
     }
 
     @Override
